@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff0f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 30px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+      width: 90%;
+      max-width: 340px;
+    }
+
+    h2 {
+      color: #d6336c;
+      margin-bottom: 35px;
+      font-size: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    button {
+      padding: 16px 30px;
+      font-size: 18px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background: #28a745;
+      color: white;
+    }
+
+    #no {
+      background: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>gunjia, will you be my Valentine? 💘</h2>
+
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+
+    let noClicks = 0;
+
+    const noTexts = [
+      "Are you sure? 😳",
+      "Really sure? 😟",
+      "Think again 😭",
+      "Last chance 🥺",
+      "Okay this is awkward 😅"
+    ];
+
+    noBtn.addEventListener("click", () => {
+      noClicks++;
+
+      // MUCH bigger growth
+      const scale = 1 + noClicks * 0.5;
+      yesBtn.style.transform = `scale(${scale})`;
+
+      // Change NO text
+      if (noClicks <= noTexts.length) {
+        noBtn.textContent = noTexts[noClicks - 1];
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="text-align:center; padding:40px;">
+          <h1 style="color:#d6336c; font-size:40px;">YAYYYYY 💖🥰</h1>
+          <p style="font-size:20px;">You just made my day ❤️</p>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
